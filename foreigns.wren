@@ -125,7 +125,7 @@ class Foreigns {
         for(module in modules) {
             var module_name = sanitize(module.name)
             var bind_method = "bind_%(module_name)_method"
-            body=add(body, tab(tabs) + "if(strcmp(module, \"%(module_name)\") == 0) return %(bind_method)(vm, is_static, signature);")
+            body=add(body, tab(tabs) + "if(strcmp(module, \"%(module.name)\") == 0) return %(bind_method)(vm, is_static, signature);")
 
         }
 
