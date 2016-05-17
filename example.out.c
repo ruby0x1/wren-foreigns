@@ -75,8 +75,8 @@ static WrenForeignMethodFn bind_process_method(WrenVM* vm, bool is_static, const
    //you only need the body, but it includes the rest for example
 static WrenForeignMethodFn bind_method(WrenVM* vm, const char* module, const char* class_name, bool is_static, const char* signature) {
 
-   if(strcmp(module, "io") == 0) return bind_io_method(is_static, signature);
-   if(strcmp(module, "process") == 0) return bind_process_method(is_static, signature);
+   if(strcmp(module, "io") == 0) return bind_io_method(vm, is_static, signature);
+   if(strcmp(module, "process") == 0) return bind_process_method(vm, is_static, signature);
 
    return nullptr;
 

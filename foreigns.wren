@@ -125,7 +125,7 @@ class Foreigns {
         for(module in modules) {
             var module_name = sanitize(module.name)
             var bind_method = "bind_%(module_name)_method"
-            body=add(body, tab(tabs) + "if(strcmp(module, \"%(module_name)\") == 0) return %(bind_method)(is_static, signature);")
+            body=add(body, tab(tabs) + "if(strcmp(module, \"%(module_name)\") == 0) return %(bind_method)(vm, is_static, signature);")
 
         }
 
@@ -271,5 +271,9 @@ class Foreigns {
 } //Foreigns
 
 
-//:todo: cli args
-Foreigns.new("example.in", "example.out.c")
+var args = Process.arguments
+if(args.count == 2) {
+    Foreigns.new(args[0], args[1])
+} else {
+    System.print("usage: [input_file] [output_file.c]")
+}
