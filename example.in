@@ -1,0 +1,18 @@
+module: io
+  class: File
+    false read_(_)
+    false write_(_,_)
+    false seek_(_,_)
+    false tell_()
+    false close_()
+
+module: io
+ class: Dir
+   true exists_(_)
+   true make_(_,_)
+   true list_(_,_)
+
+module: process
+ class: Process
+   true arguments(_)
+   true allArguments(_,_)
